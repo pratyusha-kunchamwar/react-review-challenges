@@ -22,27 +22,27 @@ const Minichallenge = () => {
       reply: [],
     };
 
-    setBlock((prev) => {
-      const search = (data) => {
-        return data.map((curr) => {
-          if (curr.id === parentId) {
-            return {
-              ...curr,
-              reply: [...curr.reply, newReply],
-            };
-          } else if (curr.reply && curr.reply.length > 0) {
-            return {
-              ...curr,
-              reply: search(curr.reply),
-            };
-          }
-          return curr;
-        });
-      };
+      setBlock((prev) => {
+        const search = (data) => {
+          return data.map((curr) => {
+            if (curr.id === parentId) {
+              return {
+                ...curr,
+                reply: [...curr.reply, newReply],
+              };
+            } else if (curr.reply && curr.reply.length > 0) {
+              return {
+                ...curr,
+                reply: search(curr.reply),
+              };
+            }
+            return curr;
+          });
+        };
 
-      return search(prev);
-    });
-  };
+        return search(prev);
+      });
+    };
   const addDelete = (deleteId) => {
     setBlock((prev) => {
       const search = (data) => {

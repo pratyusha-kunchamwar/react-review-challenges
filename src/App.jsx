@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import TodayReview from "./TodayReview";
-// import Minichallenge from "./Minichallenge";
-import Review from "./TodayReview";
+import TodayReview from "./components/TodayReview";
+import Minichallenge from "./components/Minichallenge";
+
 const App = () => {
   return (
     <>
-      <TodayReview/>
+      {/* <Minichallenge /> */}
+      <TodayReview />
     </>
   );
 };

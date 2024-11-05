@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-const CommentBlock = ({ comment, addReplys,addDelete }) => {
+const CommentBlock = ({ comment, addReplys, addDelete }) => {
   const [replyButton, setReplyButton] = useState(false);
   const [inputdata, setInputData] = useState("");
 
   const handleReply = () => {
     setReplyButton(!replyButton);
   };
-  console.log(addDelete);
 
   const handleAdd = () => {
     addReplys(comment.id, inputdata);
@@ -32,7 +31,7 @@ const CommentBlock = ({ comment, addReplys,addDelete }) => {
       <button onClick={replyButton ? handleAdd : handleReply}>
         {replyButton ? "Add" : "Reply"}
       </button>
-      <button onClick={()=>addDelete(comment.id)}>Delete</button>
+      <button onClick={() => addDelete(comment.id)}>Delete</button>
 
       {comment.reply.length > 0 && (
         <div style={{ marginLeft: "20px", marginTop: "10px" }}>
